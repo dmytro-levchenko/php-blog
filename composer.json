@@ -1,0 +1,17 @@
+{
+    "name": "dmytr/php-blog",
+    "description": "blog on php",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Dmytro",
+            "email": "dmytro.v.levchenko@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "slim/slim": "4.*",
+        "slim/psr7": "^1.3",
+        "twig/twig": "^3.3"
+    }
+}
