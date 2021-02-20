@@ -10,6 +10,7 @@ require __DIR__ . '/vendor/autoload.php';
 // include twig
 $loader = new FilesystemLoader('templates');
 $view = new Environment($loader);
+// include twig
 
 $app = AppFactory::create();
 $app->setBasePath("/php-blog");
@@ -27,5 +28,15 @@ $app->get('/about', function (Request $request, Response $response, $args) use (
     $response->getBody()->write($body);
     return $response;
 });
+
+$app->get('/{url_key}', function (Request $request, Response $response, $args) use ($view) {
+    $body = $view->render('post.twig', [
+        'url_key' => $args['url_key']
+    ]);
+    $response->getBody()->write($body);
+    return $response;
+});
+
+
 
 $app->run();
